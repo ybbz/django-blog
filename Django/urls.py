@@ -13,17 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, patterns, include
+from django.conf.urls import url, include
 from django.contrib import admin
-from article.views import home, database, test, template
+from article.views import detail, test, home, archives, about, tag, search, RSSFeed
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', home),
-    # url(r'^([0-9]+)/', detail, name='detail'),
+    url(r'^test/', test),
     # url(r'^id/([0-9])+/', database, name='database'),
-    url(r'^([0-9]+)', database, name='database'),
-    url(r'^test/$', test),
-    url(r'^template/$', template),
+    url(r'^([0-9]+)', detail, name='detail'),
+    url(r'^id/(?P<id>\d+)/$', detail, name='detail'),
+    url(r'^$', home),
+    url(r'^archives/$', archives),
+    url(r'^about/$', about),
+    url(r'^tag/(?P<tag>\w+)/$', tag, name='tag'),
+    url(r'^search/$', search, name='search'),
+    url(r'^feed/$', RSSFeed(), name="RSS"),
 
 ]
