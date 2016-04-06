@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from article.models import Article
+from article.models import Article, Blog
 from datetime import datetime
 from django.http import Http404
 from django.contrib.syndication.views import Feed
@@ -99,3 +99,20 @@ class RSSFeed(Feed):
 
     def item_description(self, item):
         return item.content
+
+
+def category(request):
+    return render(request, 'category.html')
+
+
+def home2(request):
+    posts = Blog.objects.all()  # 获取全部的Article对象
+    paginator = Paginator(posts, 5)
+    page = request.GET.get('page')
+    try:
+        post_list = paginator.page(page)
+    except PageNotAnInteger:
+        post_list = paginator.page(1)
+    except EmptyPage:
+        post_list = paginator.paginator(paginator.num_pages)
+    return render(request, 'home2.html', {'post_list': post_list})

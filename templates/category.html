@@ -1,0 +1,253 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            background: #E5E8ED;
+            padding: 0;
+            text-align: center;
+            font-family: 'Open Sans';
+            position: relative;
+            margin: 0;
+            height: 100%;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizelegibility;
+        }
+
+        a {
+            color: black;
+        }
+
+        .header {
+            padding: 30px 0 0;
+            float: left;
+            width: 100%;
+            background: white;
+        }
+
+        .wrapper {
+            height: auto !important;
+            height: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        h1, h2 {
+            width: 100%;
+            float: left;
+        }
+
+        h1 {
+            margin-top: 100px;
+            color: #999;
+            margin-bottom: 5px;
+            font-size: 70px;
+            font-weight: 100;
+        }
+
+        h2 {
+            padding: 00px 20px 30px 20px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            letter-spacing: 0px;
+            color: #888;
+            font-size: 20px;
+            line-height: 160%;
+            font-weight: 100;
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        pre {
+            margin: 80px auto;
+        }
+
+        pre code {
+            padding: 35px;
+            border-radius: 5px;
+            font-size: 15px;
+            background: rgba(0, 0, 0, 0.1);
+            border: rgba(0, 0, 0, 0.05) 5px solid;
+            max-width: 500px;
+        }
+
+        .main {
+            float: left;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .main h1 {
+            padding: 20px 50px 10px;
+            float: left;
+            width: 100%;
+            font-size: 60px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            font-weight: 100;
+            margin: 0;
+            padding-top: 25px;
+            font-family: 'Open Sans';
+            letter-spacing: -1px;
+            text-transform: capitalize;
+        }
+
+        .credit a {
+            text-decoration: none;
+            font-weight: bold;
+            color: black;
+        }
+
+        .page-container {
+            max-width: 100%;
+        }
+
+        .tc_body .tc_card .tc_inner_card .tc_click_target {
+            font-size: 1.25em;
+            color: #888;
+            line-height: 25px;
+            font-weight: 300;
+            text-align: left;
+            padding: 30px 30px 30px 30px;
+            text-decoration: none;
+        }
+
+        .tc_body .tc_card .tc_inner_card {
+            font-size: 1.25em;
+            color: #888;
+            line-height: 25px;
+            font-weight: 300;
+            text-align: left;
+            padding: 30px 30px 30px 30px;
+        }
+
+        .tc_card:nth-child(1n+1) .tc_inner_card {
+            border-bottom: 3px solid #1345ED;
+        }
+
+        .tc_card:nth-child(2n+2) .tc_inner_card {
+            border-bottom: 3px solid #03A010;
+        }
+
+        .tc_card:nth-child(3n+3) .tc_inner_card {
+            border-bottom: 3px solid #F8B00F;
+        }
+
+        .tc_card:nth-child(4n+4) .tc_inner_card {
+            border-bottom: 3px solid #DD4330;
+        }
+
+        .tc_back p {
+            font-family: Open Sans, sans-serif;
+            font-weight: 300;
+            padding: 50px 20px 20px;
+            margin: 0 0 10px 0;
+            color: #8A8C93;
+            color: #777;
+            letter-spacing: -1.2px;
+            font-size: 3.5625em;
+            line-height: 72px;
+            text-align: left;
+        }
+
+        .tc_inner_modal .tc_front {
+            min-height: 300px;
+        }
+
+        .tc_inner_modal .tc_front h1 {
+            margin-top: 20px;
+            font-size: 32px;
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .tc_inner_modal .tc_front p {
+            text-align: left;
+            min-height: 70px;
+            font-size: 24px;
+            line-height: 180%;
+        }
+
+    </style>
+    <script>
+        $(document).ready(function () {
+            $(document).ready(function () {
+                $(".tips").tip_cards();
+            });
+        });
+
+    </script>
+
+    <div class="wrapper">
+        <div class="main">
+            <div class="header">
+                <h1>博客分类</h1>
+            </div>
+            <div class="page-container">
+                <ul class="tips">
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip1" class="tc_click_target">Tip 1</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip2" class="tc_click_target">Tip 2</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip3" class="tc_click_target">Tip 3</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip4" class="tc_click_target">Tip 4</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip5" class="tc_click_target">Tip 5</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip6" class="tc_click_target">Tip 6</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip7" class="tc_click_target">Tip 7</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip8" class="tc_click_target">Tip 8</a>
+                        </div>
+                        <div class="tc_back"></div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip9" class="tc_click_target">Tip 9</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="tc_front">
+                            <a href="#tip10" class="tc_click_target">Tip 10</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

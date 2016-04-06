@@ -15,19 +15,22 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from article.views import detail, test, home, archives, about, tag, search, RSSFeed
+from article.views import detail, test, home, archives, about, tag, search, category, RSSFeed, home2
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^test/', test),
-    # url(r'^id/([0-9])+/', database, name='database'),
-    url(r'^([0-9]+)', detail, name='detail'),
-    url(r'^id/(?P<id>\d+)/$', detail, name='detail'),
-    url(r'^$', home),
-    url(r'^archives/$', archives),
-    url(r'^about/$', about),
-    url(r'^tag/(?P<tag>\w+)/$', tag, name='tag'),
-    url(r'^search/$', search, name='search'),
-    url(r'^feed/$', RSSFeed(), name="RSS"),
-
-]
+                  url(r'^admin/', include(admin.site.urls)),
+                  url(r'^test/', test),
+                  # url(r'^id/([0-9])+/', database, name='database'),
+                  url(r'^([0-9]+)', detail, name='detail'),
+                  url(r'^id/(?P<id>\d+)/$', detail, name='detail'),
+                  url(r'^$', home),
+                  url(r'^home2$', home2),
+                  url(r'^archives/$', archives),
+                  url(r'^about/$', about),
+                  url(r'^tag/(?P<tag>\w+)/$', tag, name='tag'),
+                  url(r'^search/$', search, name='search'),
+                  url(r'^feed/$', RSSFeed(), name="RSS"),
+                  url(r'^category/$', category, name="category"),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
