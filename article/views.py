@@ -5,6 +5,7 @@ from datetime import datetime
 from django.http import Http404
 from django.contrib.syndication.views import Feed
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db import connection
 
 
 # Create your views here.
@@ -102,7 +103,12 @@ class RSSFeed(Feed):
 
 
 def category(request):
-    return render(request, 'category.html')
+    cate_sql = 'select count(id),category from blog group by category'
+    categories = get_custom_sql(cate_sql)
+    category_list = []
+    for cate in categories:
+        category_list.append(cate[1] + '(' + str(cate[0]) + ')')
+    return render(request, 'category.html', {'category_list': category_list})
 
 
 def home2(request):
@@ -116,3 +122,10 @@ def home2(request):
     except EmptyPage:
         post_list = paginator.paginator(paginator.num_pages)
     return render(request, 'home2.html', {'post_list': post_list})
+
+
+def get_custom_sql(sql):
+    cursor = connection.cursor()
+    cursor.execute(sql)
+    row = cursor.fetchall()
+    return row
